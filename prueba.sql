@@ -13,3 +13,9 @@ SELECT modelo, precio FROM coche;
 
 -- Para seleccionar datos de una columna en la cual se utilice WHERE para tener una coincidencia
 SELECT * FROM coche WHERE fecha_de_produccion = 1999; -- En este caso para cuando la fecha sea 1999 se selecciona todo
+
+-- Es posible usar otros operadores logicos con where como < > >= <= 
+SELECT * FROM coche WHERE precio > 10000;
+
+-- Tambien se puede usar != 
+SELECT * FROM coche WHERE fecha_de_produccion != 1999;
