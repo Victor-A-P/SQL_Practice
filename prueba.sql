@@ -78,3 +78,5 @@ SELECT * FROM coche
 WHERE (fecha_de_produccion BETWEEN 1999 AND 2005) 
 AND (modelo != 'Volkswagen' AND (modelo LIKE 'P%' OR modelo LIKE 'F%')) 
 AND (precio IS NOT NULL);
+
+
