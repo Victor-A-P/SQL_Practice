@@ -43,4 +43,55 @@ SELECT AVG(salario) FROM empleados WHERE fecha =2013;
 -- Suma de valores(total) SUM()
 SELECT SUM(salario) FROM empleados WHERE (departamento = 'Marketing') AND (fecha = 2014);
 
+-- Agrupandolos con GROUP BY
 
+SELECT departamento, COUNT(DISTINCT nombre) AS numero_de_empleados 
+FROM empleados WHERE fecha = 2013 GROUP BY departamento;
+
+-- MIN y MAX de Grupos
+
+-- Es posible combinar GROUP BY con otras funciones
+
+SELECT departamento, MAX(salario), MIN(salario) 
+FROM empleados WHERE fecha = 2014 GROUP BY departamento; 
+
+SELECT departamento, AVG(salario) FROM empleados WHERE fecha = 2015 GROUP BY departamento;
+
+
+-- Agrupar por varias columnas
+SELECT nombre, apellido, AVG(salario) FROM empleados GROUP BY apellido, nombre;
+
+-- Filtrar Grupos
+
+
+-- ! Las Clausulas de SQL tiene una jerarquía u orden correcto --
+
+-- ! 1.- FROM
+-- ! 2.- WHERE
+-- ! 3.- GROUP BY
+-- ! 4.- HAVING
+-- ! 5.- SELECT
+-- ! 6.- ORDER BY
+-- ! 7.- LIMIT
+
+
+SELECT nombre, apellido, COUNT(DISTINCT fecha) AS fechas 
+FROM empleados 
+GROUP BY apellido,nombre 
+HAVING COUNT(DISTINCT fecha) > 2;
+
+
+SELECT departamento, AVG(salario) 
+FROM empleados
+WHERE fecha = 2012 
+GROUP BY departamento
+HAVING AVG(salario) > 3000;
+
+-- Es posible ordenar los grupos
+SELECT nombre, apellido, SUM(salario) FROM empleados GROUP BY apellido, nombre ORDER BY SUM(salario) DESC;
+
+SELECT apellido, nombre, AVG(salario) AS salario_medio, COUNT(DISTINCT fecha) AS fechas_trabajados
+FROM empleados
+GROUP BY apellido, nombre
+HAVING COUNT(DISTINCT fecha) > 2
+ORDER BY AVG(salario) DESC;

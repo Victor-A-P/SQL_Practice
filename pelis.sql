@@ -30,11 +30,17 @@ ON pelicula.id_del_director = director.id;
 
 -- Haciendo consultas de tablas combinadas con columnas especificas con cierto criterio
 
-SELECT * FROM pelicula JOIN director ON pelicula.id_del_director = director.id WHERE fecha_de_produccion >= 2000;
+SELECT * 
+FROM pelicula 
+JOIN director 
+ON pelicula.id_del_director = director.id WHERE fecha_de_produccion >= 2000;
 
 -- Ahora se utiliza LIKE
 
-SELECT * FROM pelicula JOIN director ON pelicula.id_del_director = director.id WHERE nombre LIKE 'Steven%';
+SELECT * 
+FROM pelicula 
+JOIN director 
+ON pelicula.id_del_director = director.id WHERE nombre LIKE 'Steven%';
 
 -- PRacticando lo aprendido
 SELECT 
